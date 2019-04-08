@@ -51,12 +51,25 @@
             <script type="text/javascript">
             /*google.charts.load('current', {packages: ['corechart']});
             google.charts.setOnLoadCallback(drawChart);*/
-                    var request = new XMLHttpRequest()
+                var basequery = "http://localhost:3030/MoviesToys?query="
+                var formatquery = "&output=json"
+                var querytxt_one = 
+                    "PREFIX movies:<http://www.movieontology.org/2009/10/01/movieontology.owl#>" +
+                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
+                    "PREFIX movie: <http://data.linkedmdb.org/resource/movie/>" +
+                    "SELECT ?genre (COUNT(?title) AS ?GenreNumber)"+
+                    "WHERE { GRAPH <http://localhost:3030/MoviesToys/data/Movies> {?s movies:genre ?genre;"+
+                    "movies:orginal_title ?title.}" +
+                            "}" +
+                    "group by ?genre";
+
+
+                    var queryone = new XMLHttpRequest()
                 
                 // Open a new connection, using the GET request on the URL endpoint
-                request.open('GET', 'http://localhost:3030/testing?query=PREFIX+movies%3A+%3Chttp%3A%2F%2Fwww.movieontology.org%2F2009%2F10%2F01%2Fmovieontology.owl%23%3E%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+movie%3A+%3Chttp%3A%2F%2Fdata.linkedmdb.org%2Fresource%2Fmovie%2F%3E%0ASELECT+%3Fgenre+(COUNT(%3Ftitle)+AS+%3FGenreNumber)%0AWHERE+%7B+%3Fs+movies%3Agenre+%3Fgenre%3B%0A+++++++++movies%3Aorginal_title+%3Ftitle.%0A++++++++%7D%0Agroup+by+%3Fgenre%0A%0A%0A%0A%0A&output=json', true)
+                queryone.open('GET', testing, true)
         
-                request.onload = function() {
+                queryone.onload = function() {
                   // Begin accessing JSON data here
                 
                   //querying cateogories
@@ -64,11 +77,13 @@
                   console.log(data);
                   data = data.results.bindings;
                   //console.log(data[0].valueOf()); 
-                  var arr = [];
-                  var title = ['Genre', 'Genre Number']
-                  arr.push(title);
                   
-                  if (request.status >= 200 && request.status < 400) {
+                  
+                  
+                  if (queryone.status >= 200 && queryone.status < 400) {
+                      var arr = [];
+                      var title = ['Genre', 'Genre Number']
+                  arr.push(title);
                     data.forEach(type => {
                         //console.log(type.length);
                       console.log(type.genre.value)
@@ -115,8 +130,8 @@
                 
                 }
                 
-                // Send request
-                request.send()
+                // Send queryone
+                queryone.send()
             </script>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
