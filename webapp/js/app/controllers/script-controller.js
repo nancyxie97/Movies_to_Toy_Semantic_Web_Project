@@ -17,19 +17,16 @@ var PageView = this;
 PageView.currentView = ko.observable("ScenarioView");
 PageView.Home = function() {
   PageView.currentView("ScenarioView");
-  console.log(PageView.currentView);
 };
 PageView.About = function() {
   PageView.currentView("AboutView");
-  console.log("Hello World");
-  console.log(PageView.currentView);
 };
 
 ko.applyBindings(PageView);
 
 function temp(basequery, formatquery, prefix) {
   console.log("Temp");
-  //console.log(hello);
+
   //var basequery = "http://localhost:3030/MoviesToys?query="
   //var formatquery = "&output=json"
   var querytxt_one =
@@ -41,8 +38,7 @@ function temp(basequery, formatquery, prefix) {
 
   var complete_q1 =
     basequery + encodeURIComponent(prefix + querytxt_one) + formatquery;
-  //console.log("Hello There Nancy is testing ");
-  //console.log(complete_q1);
+
   var queryone = new XMLHttpRequest();
 
   // Open a new connection, using the GET request on the URL endpoint
@@ -53,9 +49,8 @@ function temp(basequery, formatquery, prefix) {
 
     //querying cateogories
     var data = JSON.parse(this.response);
-    //console.log(data);
+
     data = data.results.bindings;
-    //console.log(data[0].valueOf());
 
     if (queryone.status >= 200 && queryone.status < 400) {
       var arr = [];
@@ -156,6 +151,10 @@ function queryone(basequery, formatquery, prefix, namedGraphs) {
   var Toy_to_Movie_Budget = [];
   var Toy_to_Movie_Revenue = [];
   var Toy_to_Movie_Count = [];
+  var Movie_Rating_to_Avg_ToyRating = [];
+  var Movie_Rating_to_Avg_ToyPrice = [];
+
+  var maxPrice = 0;
 
   query_uno.onload = function() {
     var data = JSON.parse(this.response);
@@ -167,6 +166,16 @@ function queryone(basequery, formatquery, prefix, namedGraphs) {
     if (query_uno.status >= 200 && query_uno.status < 400) {
       var title_Toy_to_Movie_Count = ["Movie Title", "Number of Toys"];
       Toy_to_Movie_Count.push(title_Toy_to_Movie_Count);
+
+      Toy_to_Movie_Rating.push(["Movie Ratings", "Number of Toys"]);
+      Toy_to_Movie_Rating = rating_arr(Toy_to_Movie_Rating);
+
+      Movie_Rating_to_Avg_ToyRating.push([
+        "Movie Ratings",
+        "Average Toy Rating"
+      ]);
+
+      Movie_Rating_to_Avg_ToyPrice.push(["Movie Ratings", "Average Toy Price"]);
 
       Toy_to_Movie_Budget.push(
         ["Movie Budget", "Number of Toys"],
@@ -181,49 +190,19 @@ function queryone(basequery, formatquery, prefix, namedGraphs) {
       Toy_to_Movie_Revenue.push(
         ["Movie Budget", "Number of Toys"],
         ["Movie Budget < $1,000,000", 0],
-        ["$1,000,000 <= Movie Budget < $10,000,000", 0],
-        ["$10,000,000 <= Movie Budget < $50,000,000", 0],
-        ["$50,000,000 <= Movie Budget < $100,000,000", 0],
-        ["$100,000,000 <= Movie Budget < $200,000,000", 0],
-        ["$200,000,000 <= Movie Budget", 0]
+        ["$1,000,000 <= Movie Revenue < $10,000,000", 0],
+        ["$10,000,000 <= Movie Revenue < $50,000,000", 0],
+        ["$50,000,000 <= Movie Revenue < $100,000,000", 0],
+        ["$100,000,000 <= Movie Revenue < $200,000,000", 0],
+        ["$200,000,000 <= Movie Revenue", 0]
       );
       data.forEach(type => {
         var inner_Toy_to_Movie_Count = [];
-        //console.log(final_arr)
-        //console.log(type.length);
-        //console.log(type.genre.value)
 
-        /* var inner_Toy_to_Movie_Rating = [];
-        var title_Toy_to_Movie_Rating = ["Movie Title", "Movie Rating "];
-        Toy_to_Movie_Rating.push(title_Toy_to_Movie_Rating);
-
-        var inner_Toy_to_Movie_Budget = [];
-        var title_Toy_to_Movie_Budget = ["Movie Title", "Movie Budget "];
-        Toy_to_Movie_Budget.push(title_Toy_to_Movie_Budget);
-
-        var inner_Toy_to_Movie_Revenue = [];
-        var title_Toy_to_Movie_Revenue = ["Movie Title", "Movie Budget "];
-          
-        var inner_Toy_to_Movie_Rating = [];
-        var title_Toy_to_Movie_Rating = ["Movie Title", "Movie Rating "]; */
-        /* inner_Toy_to_Movie_Rating[0] = type.title.value;
-        inner_Toy_to_Movie_Budget[0] = type.title.value;
-        //inner_Toy_to_Movie_Revenue[0] = type.title.value; */
         inner_Toy_to_Movie_Count[0] = type.title.value;
 
-        /* inner_Toy_to_Movie_Rating[1] = type.title.value;
-        inner_Toy_to_Movie_Budget[1] = type.budget.value;
-        inner_Toy_to_Movie_Revenue[1] = type.title.value; */
         inner_Toy_to_Movie_Count[1] = parseInt(type.toyCount.value);
 
-        /* ar[1] = parseInt(type.prodCompany.value);
-        ar[2] = parseInt(type.budget.value);
-        ar[3] = parseInt(type.revenue.value);
-        ar[4] = parseFloat(type.rating.value);
-        ar[5] = parseInt(type.toyCount.value);
-        ar[6] = parseFloat(type.avgToyRating.value);
-        ar[7] = parseFloat(type.avgToyCost.value); */
-        //console.log(type.budget.value);
         Toy_to_Movie_Budget = ret_count_arr(
           Toy_to_Movie_Budget,
           parseInt(type.budget.value)
@@ -234,11 +213,32 @@ function queryone(basequery, formatquery, prefix, namedGraphs) {
           parseInt(type.revenue.value)
         );
 
+        Toy_to_Movie_Rating = ret_ratings_arr(
+          Toy_to_Movie_Rating,
+          parseFloat(type.rating.value)
+        );
+
+        Movie_Rating_to_Avg_ToyRating.push([
+          parseFloat(type.rating.value),
+          parseFloat(type.avgToyRating.value)
+        ]);
+
+        Movie_Rating_to_Avg_ToyPrice.push([
+          parseFloat(type.rating.value),
+          parseFloat(type.avgToyCost.value)
+        ]);
+          
+        if(maxPrice < parseFloat(type.avgToyCost.value)) {
+            maxPrice = parseFloat(type.avgToyCost.value)
+        }
         Toy_to_Movie_Count.push(inner_Toy_to_Movie_Count);
       });
     } else {
       console.log("error");
     }
+
+    console.log("TESTING UGH");
+    console.log(Movie_Rating_to_Avg_ToyRating);
 
     var ToyToMovieCountDraw = draw_Bar(
       Toy_to_Movie_Count,
@@ -247,7 +247,15 @@ function queryone(basequery, formatquery, prefix, namedGraphs) {
       "Number of Toys",
       "toy_movie_count"
     );
-    console.log("Drawing PIE things");
+
+    var ToyToMovieRatingDraw = draw_Bar(
+      Toy_to_Movie_Rating,
+      "Number of Toys based on Movie Ratings",
+      "Movie Ratings",
+      "Number of Toys",
+      "toy_movie_rating"
+    );
+
     var MovieBudgetPie = draw_Pie(
       Toy_to_Movie_Budget,
       "Movie Budget to The Amount of Toys Created",
@@ -260,26 +268,32 @@ function queryone(basequery, formatquery, prefix, namedGraphs) {
       "piechart_2"
     );
 
-    console.log(Toy_to_Movie_Budget);
+    var MovieRatingtoAvgToyDraw = draw_Scatter(
+      Movie_Rating_to_Avg_ToyRating,
+      "Movie Ratings to Average Toy Rating",
+      "Movie Ratings",
+      "Average Toy Rating",
+      10,
+      "movie_rating_avg_toy"
+    );
+
+    var MovieRatingtoAvgToyPriceDraw = draw_Scatter(
+      Movie_Rating_to_Avg_ToyPrice,
+      "Movie Ratings to Average Toy Price",
+      "Movie Ratings",
+      "Average Toy Price",
+      maxPrice,
+      "movie_rating_avg_toy_price"
+    );
   };
 
   query_uno.send();
 }
-function findarray(arr, length_category) {
-  var tmp_arr = [];
-  console.log("Inside find");
-  console.log(arr[0]);
-  console.log(arr.length);
-  for (i = 0; i < arr.length; i++) {}
-}
-
 function draw_Bar(arr, mainTitle, hTitle, vTitle, elementID) {
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawStuff);
 
   function drawStuff() {
-    //console.log(arr);
-
     var data = google.visualization.arrayToDataTable(arr);
 
     var options = {
@@ -300,7 +314,6 @@ function draw_Bar(arr, mainTitle, hTitle, vTitle, elementID) {
   }
 }
 function draw_Pie(arr, mainTitle, elementID) {
-  console.log("Entered Pie Chart");
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawPieChart);
 
@@ -316,6 +329,27 @@ function draw_Pie(arr, mainTitle, elementID) {
     );
 
     chart.draw(Pie_data, Pie_options);
+  }
+}
+function draw_Scatter(arr, mainTitle, hTitle, vTitle, maxV, elementID) {
+  google.charts.load("current", { packages: ["corechart"] });
+  google.charts.setOnLoadCallback(drawScatterChart);
+
+  function drawScatterChart() {
+    var data = google.visualization.arrayToDataTable(arr);
+
+    var options = {
+      title: mainTitle,
+      hAxis: { title: hTitle, minValue: 0, maxValue: 5 },
+      vAxis: { title: vTitle, minValue: 0, maxValue: maxV },
+      legend: "none"
+    };
+
+    var chart = new google.visualization.ScatterChart(
+      document.getElementById(elementID)
+    );
+
+    chart.draw(data, options);
   }
 }
 function ret_count_arr(count_arr, budget) {
@@ -334,4 +368,34 @@ function ret_count_arr(count_arr, budget) {
   }
 
   return count_arr;
+}
+function rating_arr(ratin_arr) {
+  for (var i = 1; i < 11; i++) {
+    ratin_arr.push([i.toString(), 0]);
+  }
+
+  return ratin_arr;
+}
+function ret_ratings_arr(ratin_arr, rating) {
+  if (1.0 <= rating && rating < 2.0) {
+    ratin_arr[1][1]++;
+  } else if (2.0 <= rating && rating < 3.0) {
+    ratin_arr[2][1]++;
+  } else if (3.0 <= rating && rating < 4.0) {
+    ratin_arr[3][1]++;
+  } else if (4.0 <= rating && rating < 5.0) {
+    ratin_arr[4][1]++;
+  } else if (5.0 <= rating && rating < 6.0) {
+    ratin_arr[5][1]++;
+  } else if (6.0 <= rating && rating < 7.0) {
+    ratin_arr[6][1]++;
+  } else if (7.0 <= rating && rating < 8.0) {
+    ratin_arr[7][1]++;
+  } else if (8.0 <= rating && rating < 9.0) {
+    ratin_arr[8][1]++;
+  } else if (9.0 <= rating && rating < 10.0) {
+    ratin_arr[9][1]++;
+  }
+
+  return ratin_arr;
 }

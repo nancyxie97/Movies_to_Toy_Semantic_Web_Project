@@ -1,0 +1,249 @@
+{
+  "head": {
+    "vars": [ "title" , "prodCompany" , "budget" , "revenue" , "rating" , "toyCount" , "avgToyRating" , "avgToyCost" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "title": { "type": "literal" , "value": "Cars" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "120000000" } ,
+        "revenue": { "type": "literal" , "value": "461983149" } ,
+        "rating": { "type": "literal" , "value": "6.6" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "49" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.571429" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "17.950405" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Frozen" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "150000000" } ,
+        "revenue": { "type": "literal" , "value": "1274219009" } ,
+        "rating": { "type": "literal" , "value": "7.3" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "35" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.4" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "12.428" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Cars 2" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "200000000" } ,
+        "revenue": { "type": "literal" , "value": "559852396" } ,
+        "rating": { "type": "literal" , "value": "5.8" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "20" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.45" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "16.713" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Star Wars" } ,
+        "prodCompany": { "type": "literal" , "value": "Lucasfilm" } ,
+        "budget": { "type": "literal" , "value": "11000000" } ,
+        "revenue": { "type": "literal" , "value": "775398007" } ,
+        "rating": { "type": "literal" , "value": "8.1" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "13" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.6923075" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "22.83" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Cinderella" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "95000000" } ,
+        "revenue": { "type": "literal" , "value": "543514353" } ,
+        "rating": { "type": "literal" , "value": "6.7" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "6" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.3333335" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "34.05" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Toy Story 3" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "200000000" } ,
+        "revenue": { "type": "literal" , "value": "1066969703" } ,
+        "rating": { "type": "literal" , "value": "7.6" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "5" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "24.28" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Winnie the Pooh" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "30000000" } ,
+        "revenue": { "type": "literal" , "value": "14460000" } ,
+        "rating": { "type": "literal" , "value": "6.8" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "5" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.4" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "6.682" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Dinosaur" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "127500000" } ,
+        "revenue": { "type": "literal" , "value": "354248063" } ,
+        "rating": { "type": "literal" , "value": "6.2" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "5" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.8" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "7.2139997" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "The Good Dinosaur" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "175000000" } ,
+        "revenue": { "type": "literal" , "value": "331926147" } ,
+        "rating": { "type": "literal" , "value": "6.6" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "5" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.8" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "7.2139997" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Toy Story" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney Pixar" } ,
+        "budget": { "type": "literal" , "value": "30000000" } ,
+        "revenue": { "type": "literal" , "value": "373554033" } ,
+        "rating": { "type": "literal" , "value": "7.7" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "4" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.5" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "17.132498" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Inside Out" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "175000000" } ,
+        "revenue": { "type": "literal" , "value": "857611174" } ,
+        "rating": { "type": "literal" , "value": "8" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "11.44" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Teeth" } ,
+        "prodCompany": { "type": "literal" , "value": "Teeth" } ,
+        "budget": { "type": "literal" , "value": "0" } ,
+        "revenue": { "type": "literal" , "value": "0" } ,
+        "rating": { "type": "literal" , "value": "5.2" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.3333335" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "10.623333" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Tomorrowland" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "190000000" } ,
+        "revenue": { "type": "literal" , "value": "209154322" } ,
+        "rating": { "type": "literal" , "value": "6.2" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.6666665" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "16.373335" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Monsters University" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "200000000" } ,
+        "revenue": { "type": "literal" , "value": "743559607" } ,
+        "rating": { "type": "literal" , "value": "7" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "2" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "3.58" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "The Lion King" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "45000000" } ,
+        "revenue": { "type": "literal" , "value": "788241776" } ,
+        "rating": { "type": "literal" , "value": "8" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "2" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.5" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "5.49" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "How to Train Your Dragon" } ,
+        "prodCompany": { "type": "literal" , "value": "DreamWorks" } ,
+        "budget": { "type": "literal" , "value": "165000000" } ,
+        "revenue": { "type": "literal" , "value": "494878759" } ,
+        "rating": { "type": "literal" , "value": "7.5" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "12.99" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Brave" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "185000000" } ,
+        "revenue": { "type": "literal" , "value": "538983207" } ,
+        "rating": { "type": "literal" , "value": "6.7" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "20.88" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Big Hero 6" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "165000000" } ,
+        "revenue": { "type": "literal" , "value": "652105443" } ,
+        "rating": { "type": "literal" , "value": "7.8" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "7.99" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Return of the Jedi" } ,
+        "prodCompany": { "type": "literal" , "value": "Lucasfilm" } ,
+        "budget": { "type": "literal" , "value": "32350000" } ,
+        "revenue": { "type": "literal" , "value": "572700000" } ,
+        "rating": { "type": "literal" , "value": "7.9" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "5.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "10.14" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Maleficent" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "180000000" } ,
+        "revenue": { "type": "literal" , "value": "758539785" } ,
+        "rating": { "type": "literal" , "value": "7" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "5.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "185.99" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Prom" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "8000000" } ,
+        "revenue": { "type": "literal" , "value": "10130000" } ,
+        "rating": { "type": "literal" , "value": "5.7" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "5.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "19.75" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "The Muppets" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "45000000" } ,
+        "revenue": { "type": "literal" , "value": "165184237" } ,
+        "rating": { "type": "literal" , "value": "6.5" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "5.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "4.99" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Enchanted" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "85000000" } ,
+        "revenue": { "type": "literal" , "value": "340487652" } ,
+        "rating": { "type": "literal" , "value": "6.6" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "5.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "6.99" }
+      } ,
+      {
+        "title": { "type": "literal" , "value": "Bambi" } ,
+        "prodCompany": { "type": "literal" , "value": "Disney" } ,
+        "budget": { "type": "literal" , "value": "858000" } ,
+        "revenue": { "type": "literal" , "value": "267447150" } ,
+        "rating": { "type": "literal" , "value": "6.8" } ,
+        "toyCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" } ,
+        "avgToyRating": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "5.0" } ,
+        "avgToyCost": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#float" , "value": "9.99" }
+      }
+    ]
+  }
+}
