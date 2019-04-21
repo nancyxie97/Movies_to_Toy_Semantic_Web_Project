@@ -21,6 +21,9 @@ PageView.Home = function() {
 PageView.About = function() {
   PageView.currentView("AboutView");
 };
+PageView.Search = function() {
+  PageView.currentView("SearchView");
+};
 
 ko.applyBindings(PageView);
 
@@ -273,7 +276,7 @@ function queryone(basequery, formatquery, prefix, namedGraphs) {
       "Movie Ratings to Average Toy Rating",
       "Movie Ratings",
       "Average Toy Rating",
-      10,
+      5,
       "movie_rating_avg_toy"
     );
 

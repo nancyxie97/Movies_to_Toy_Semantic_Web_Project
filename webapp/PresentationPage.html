@@ -16,21 +16,15 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" data-bind="click: Home" href="#">Home <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" data-bind="click: Home" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Link</a>
+                          <a class="nav-link" data-bind="click: Search" href="#">Search</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" data-bind="click: About" href="#">About</a>
                         </li>
-                        
-                        
                       </ul>
-                      <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                      </form>
                     </div>
             </nav>
             
@@ -38,17 +32,84 @@
             <div class="pads" style="padding-left: 100px; padding-right: 100px">
             <div id="toy_movie_count" data-bind="visible: currentView() == 'ScenarioView'"></div>
             <div id="toy_movie_rating" data-bind="visible: currentView() == 'ScenarioView'"></div>
-            <div id="piechart_1" data-bind="visible: currentView() == 'ScenarioView'" style="width: 700px; height: 500px;"></div>
-            <div id="piechart_2" data-bind="visible: currentView() == 'ScenarioView'" style="width: 700px; height: 500px;"></div>
+            
+            
+            <table class="columns">
+              <tr>
+                <td><div id="piechart_1" data-bind="visible: currentView() == 'ScenarioView'" style="width: 700px; height: 500px;"></div></td>
+                <td><div id="piechart_2" data-bind="visible: currentView() == 'ScenarioView'" style="width: 700px; height: 500px;"></div></td>
+              </tr>
+            </table>
             <div id="movie_rating_avg_toy" data-bind="visible: currentView() == 'ScenarioView'"></div>
             <div id="movie_rating_avg_toy_price" data-bind="visible: currentView() == 'ScenarioView'"></div>
             
-            <h1 data-bind="visible: currentView() == 'AboutView'">This could be an about page</h1>
+            <div id="search" data-bind="visible: currentView() == 'SearchView'" style="display:block">
+			<div>
+			
+				<form action="javascript:search(this.searchbar.value);">
+				  <input id="searchbar" type="text" placeholder="Search.." name="search" value="">
+				  <button type="submit">Submit</button>
+				</form>
+			</div>
+			<b>
+				Search Results
+			</b>
+			<div>
+				<table id="movieTable" border="1" data-bind="visible: currentView() == 'SearchView'">
+					<thead>
+						<th>Movie Name</th>
+						<th>Production Company</th>
+						<th>Budget</th>
+						<th>Revenue</th>
+						<th>Rating</th>
+						<th>More Info</th>
+					</thead>
+					<tbody id="tb">
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="movieInfo" style="display:none">
+			<button type="button" onclick="displaySearch()">Back to search</button>
+			<div>
+				<b>Movie Name : <span id="movieName">Test</span></b>
+				<br>
+				<b>Production Company : <span id="productionComp">Test</span></b>
+			</div>
+			<div id="loading" "display:block">
+				<b>Loading Results </b>
+			</div>
+			<div id="doneloading" style="display:none">
+				<b> Number of Toys <span id="numoftoys">0</span></b>
+				<div>
+					<table id="toyTable" border="1">
+						<thead>
+							<th>Toy Name</th>
+							<th>Brand</th>
+							<th>Price</th>
+							<th>Description</th>
+							<th>Number of Reviews</th>
+							<th>Avg Rating</th>
+						</thead>
+						<tbody id="toytb">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+            
+            <div data-bind="visible: currentView() == 'AboutView'" style="padding-left: 100px; padding-right: 100px; padding-top: 40px;">
+                <h1>This site was created by: <br> </h1>
+                <h2>Vadim Chochua, Michael Meadors, Nancy Xie</h2>
+                <p>It is an interactive site that shows and allows for searching results from combining Movie and Toys datasets together using Jena Fuseki Server. </p>
+            </div>
+            
             </div>
             
             
            
             <div class="script">
+               <script src="js/app/controllers/Search.js" type="text/javascript"></script>
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
                 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
